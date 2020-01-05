@@ -12,14 +12,21 @@
 
 이전의 action들이 독립적이지 않고 서로 영향을 주고 받는다.
 
+<br />
+
 ## **2. Rewards**
 
 - reward는 스칼라 신호로,  agent가 t 단계에서 얼마나 잘하고 있는지를 나타내는 지표
+
 - agent의 임무는 축적된 reward를 최대화하는 것
+
+  <br />
 
 ## **3. Sequential Decision Making**
 
 - Goal : total future reward를 최대화 하기 위한 action을 취하는 것
+
+<br />
 
 ## **4. Agent and Environment**
 
@@ -32,6 +39,8 @@
 ## **5. History and State**
 
 - **History** : observations, actions, rewards의 모든 sequence를 가지고 있다.따라서, history를 바탕으로 agent는 action을 정하고, environment는 observations/rewards를 정한다.
+
+  <br />
 
 - **State** : 다음에 무슨 일이 일어날지를 정하기 위해 사용되는 정보로, state는 history의 함수이다.
 
