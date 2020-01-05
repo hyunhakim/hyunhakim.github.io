@@ -103,6 +103,12 @@ Control : optimize the future (policy를 최적화)
 
 
 
+
+
+
+
+
+
 **※ 참고문헌 및 자료**
 
 - [[David Silver's Lecture]](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html)

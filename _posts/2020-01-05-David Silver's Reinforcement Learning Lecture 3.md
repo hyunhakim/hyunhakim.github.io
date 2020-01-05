@@ -198,6 +198,12 @@ value iteration은 뒤에서부터 차례로 최적의 optimal solution을 찾�
 
 
 
+
+
+
+
+
+
 **※ 참고문헌 및 자료**
 
 - [[David Silver's Lecture]](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html)

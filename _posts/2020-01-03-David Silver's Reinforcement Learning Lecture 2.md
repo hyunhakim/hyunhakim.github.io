@@ -199,6 +199,12 @@ MDP는 MRP에서 action의 집합이 추가된다.
 
 
 
+
+
+
+
+
+
 **※ 참고문헌 및 자료**
 
 - [[David Silver's Lecture]](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html)
