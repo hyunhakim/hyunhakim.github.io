@@ -1,6 +1,6 @@
-# David Silver's Reinforcement Learning Lecture 1
 
-----------------------------------------------------
+
+
 
 ## **1. Characteristics of Reinforcement Learning**
 

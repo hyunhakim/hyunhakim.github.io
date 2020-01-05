@@ -1,6 +1,4 @@
-# **David Silver's Reinforcement Learning Lecture 3**
 
------------------------------
 
 ## **Planning by Dynamic Programming**
 
