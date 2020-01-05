@@ -19,11 +19,11 @@ Dynamic Programming을 사용하기 위해선 두 가지 조건을 만족해야 
 
 ## **2. Policy Evaluation**
 
-Policy Evaluation은 policy가 주어졌을 때 value function을 구해서 평가하는 **prediction **문제이다.
+Policy Evaluation은 policy가 주어졌을 때 value function을 구해서 평가하는 prediction 문제이다.
 
 - **Iterative Policy Evaluation**
 
-  ![image-20200105143857735](C:\Users\gusgk\AppData\Roaming\Typora\typora-user-images\image-20200105143857735.png)
+  ![image](https://user-images.githubusercontent.com/59254578/71778590-36225700-2ff3-11ea-8c3e-78f78f9fdf49.png)
 
   policy와 reward가 주어졌을 때, Bellman Equation을 가지고  매 iteration마다 value function을 조금씩 개선한다.
 
@@ -37,21 +37,25 @@ Policy Evaluation은 policy가 주어졌을 때 value function을 구해서 평�
 
   
 
+  
+
+  
+
   ![image](https://user-images.githubusercontent.com/59254578/71775982-abc6fc80-2fcc-11ea-8fc1-09c6839d7bb6.png)
 
   ![image](https://user-images.githubusercontent.com/59254578/71775967-69052480-2fcc-11ea-9266-ebc92d001afd.png)
 
   여기서 3번만 반복해도(valuation이 최적화 되지 않아도) optimal policy가 나온 것을 확인할 수 있다.
-
+  
   평가하는 문제에서 최적의 policy를 찾을 수 있다는 것을 보여준다.
-
+  
   
 
 ## **3. Policy Iteration**
 
 Policy Evaluation에서 policy improvement 를 추가한 것이 policy iteration이다.
 
-![image-20200105151317961](C:\Users\gusgk\AppData\Roaming\Typora\typora-user-images\image-20200105151317961.png)
+![image](https://user-images.githubusercontent.com/59254578/71778603-6bc74000-2ff3-11ea-8c8a-bdfbbd7cb88f.png)
 
 evaluation을 통해 개선된 value function을 기반으로 policy를 개선. 반복하면 결국 최적으로 수렴한다.
 
@@ -61,7 +65,7 @@ evaluation을 통해 개선된 value function을 기반으로 policy를 개선. 
 
   이 질문에 대한 증명이 아래와 같다.
 
-  ![image-20200105152349318](C:\Users\gusgk\AppData\Roaming\Typora\typora-user-images\image-20200105152349318.png)
+  ![image](https://user-images.githubusercontent.com/59254578/71778611-83062d80-2ff3-11ea-90a1-743a3d276986.png)
 
   이 수식은 어떻게 보면 당연하다. action-value function(q-function)의 최댓값을 내는 action을 따르면 당연히 그 어떤 action들에 의해서 나오는 값보다는 크거나 같기 때문이다.
 
@@ -196,9 +200,10 @@ value iteration은 뒤에서부터 차례로 최적의 optimal solution을 찾�
 
 **※ 참고문헌 및 자료**
 
-- [David Silver Lecture]: http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html
+- [[David Silver's Lecture]](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html)
+- [[팡요랩]](https://www.youtube.com/channel/UCwkGvF7xKz2E0Lv-fZ9wv2g)
 
-- [팡요랩]: https://www.youtube.com/channel/UCwkGvF7xKz2E0Lv-fZ9wv2g
 
-  
+
+
 

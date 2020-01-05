@@ -71,7 +71,7 @@ policy를 기반으로 미래의 reward에 대한 기대값을 얻어서 state�
 
 ## **8. Model**
 
-![image-20200102222846054](C:\Users\gusgk\AppData\Roaming\Typora\typora-user-images\image-20200102222846054.png)
+![image](https://user-images.githubusercontent.com/59254578/71778563-ee033480-2ff2-11ea-86da-8b40d1bc32c4.png)
 
 environment가 해야하는 일을 모델링한다고 보면 된다.
 
@@ -105,9 +105,6 @@ Control : optimize the future (policy를 최적화)
 
 **※ 참고문헌 및 자료**
 
-- [David Silver Lecture]: http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html
-
-- [팡요랩]: https://www.youtube.com/channel/UCwkGvF7xKz2E0Lv-fZ9wv2g
-
-  
+- [[David Silver's Lecture]](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html)
+- [[팡요랩]](https://www.youtube.com/channel/UCwkGvF7xKz2E0Lv-fZ9wv2g)
 
