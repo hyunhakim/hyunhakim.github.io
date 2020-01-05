@@ -12,7 +12,7 @@
 
 현재 t에서의 state가 이전의 모든 정보(history)를 포함하고 있어서 미래를 고려할  때 현재의 state만 고려해도 된다.
 
-
+<br />
 
 ## **2. State Transition Matrix**
 
@@ -22,7 +22,7 @@
 
   현재 state에서 다음 state가 될 확률.
 
-  
+  <br />
 
 - state transition matrix
 
@@ -31,6 +31,8 @@
   n개의 state를 고려하면 matrix가 된다. 즉, P1n은 1-state에서 n-state로 갈 확률.
 
   각 row의 합은 1이 된다.
+  
+  <br />
 
 ## **3. Markov Process**
 
@@ -40,11 +42,15 @@ Markov Process는 state들의 집합인 S와 state transition probability matrix
 
 여기서 memoryless가 의미하는 것은 이전 정보가 필요 없다는 것. 즉, markov property를 만족한다는 것.
 
+<br />
+
 - **example**
 
   ![image](https://user-images.githubusercontent.com/59254578/71723585-87560d80-2e70-11ea-8a9b-b857010b2b57.png)
 
   여기서 sleep이 **terminal state(episode가 종료되는 state)**
+  
+  <br />
 
 ## **4. Markov Reward Process**
 
@@ -52,13 +58,15 @@ Markov Process는 state들의 집합인 S와 state transition probability matrix
 
 Markov Reward Process는 markov process에서 reward가 추가된 것.
 
+<br />
+
 - **Return**![image](https://user-images.githubusercontent.com/59254578/71723977-ed8f6000-2e71-11ea-8836-d743fb96205c.png)
 
   Return은 미래에 축적될 reward들을 다 더한 값. 즉, return을 최대화 시키는 것이 목적이다.
 
   discount가 0에 가까우면 현재의 reward가 중요하게 되고, 1에 가까우면 미래의 reward가 중요하게 된다.
 
-  
+  <br />
 
 - **Value Function**
 
@@ -66,7 +74,7 @@ Markov Reward Process는 markov process에서 reward가 추가된 것.
 
   markov reward process에서 value function은 return의 기댓값이다.
 
-  
+  <br />
 
 - **Bellman Equation for MRPs**
 
@@ -76,6 +84,8 @@ Markov Reward Process는 markov process에서 reward가 추가된 것.
 
   바로 다음 state의 value function을 통해 값을 구한다.
 
+  <br />
+
   이것을 간단하게 표현하면 아래와 같다.
 
   ![image](https://user-images.githubusercontent.com/59254578/71725256-9344ce00-2e76-11ea-9889-e417ceebb334.png)
@@ -83,14 +93,20 @@ Markov Reward Process는 markov process에서 reward가 추가된 것.
   ![image](https://user-images.githubusercontent.com/59254578/71725272-a0fa5380-2e76-11ea-9df8-34e064affba4.png)
 
   여기서 v를 바로 구할 수 있다. 왜냐하면 MRP에서는 discount, R, P가 주어지는 문제이기 때문에.
-
+  
   ![image](https://user-images.githubusercontent.com/59254578/71725338-d56e0f80-2e76-11ea-9c70-3e8c4303b52e.png)
+  
+  <br />
+  
+  <br />
 
 ## **5. Markov Decision Process**
 
 ![image](https://user-images.githubusercontent.com/59254578/71725386-0e0de900-2e77-11ea-9c8b-076eec375c18.png)
 
 MDP는 MRP에서 action의 집합이 추가된다.
+
+<br />
 
 - **policy**
 
@@ -104,7 +120,7 @@ MDP는 MRP에서 action의 집합이 추가된다.
 
   MDP에서 P와 R을 위와 같이 계산을 하여 고정시키면 결국 MP나 MRP 문제가 된다고 볼 수 있다.
 
-  
+  <br />
 
 - **Value Function**
 
@@ -112,7 +128,7 @@ MDP는 MRP에서 action의 집합이 추가된다.
 
   action-value function은 q-function이라고도 한다. Q-learning과 DQN에서의 Q가 이 action-value function을 의미.
 
-  
+  <br />
 
 - **Bellman Expectation Equation**
 
@@ -122,19 +138,19 @@ MDP는 MRP에서 action의 집합이 추가된다.
 
   q는 v에서 해당 state에서 취할 수 있는 action까지 고려한, 더 세분화한 함수라고 보면 된다.
 
-  
+  <br />
 
   ![image](https://user-images.githubusercontent.com/59254578/71726669-2d0e7a00-2e7b-11ea-8b3f-b6336fd737db.png)
 
   두 식의 관계는 위와 같다. 현재 state에서 취할 수 있는 action들을 다 고려해서 더하면 결국 v가 된다.
 
-  
+  <br />
 
   ![image](https://user-images.githubusercontent.com/59254578/71726870-c178dc80-2e7b-11ea-9a04-2967fa584cb0.png)
 
   반대로 q는 현재의 reward에다가 어떤 action을 취했을 때 나올 수 있는 state들의 v를 더하면 된다.
 
-  
+  <br />
 
   ![image](https://user-images.githubusercontent.com/59254578/71728021-55987300-2e7f-11ea-944e-81d883122646.png)
 
@@ -142,13 +158,13 @@ MDP는 MRP에서 action의 집합이 추가된다.
 
   식들을 서로에게 대입하면 위의 식처럼 나온다.
 
-  
+  <br />
 
   ![image](https://user-images.githubusercontent.com/59254578/71728337-2e8e7100-2e80-11ea-85d4-222c4cd02bd4.png)
 
   결국 이처럼 direct solution을 도출할 수 있다.
 
-  
+  <br />
 
 - **Optimal Value Function**
 
@@ -156,7 +172,7 @@ MDP는 MRP에서 action의 집합이 추가된다.
 
   최대값을 갖는 것이 곧 최적의 값이다. 즉, MDP를 풀었다고 할 수 있다.
 
-  
+  <br />
 
 - **Optimal Policy**
 
@@ -166,7 +182,7 @@ MDP는 MRP에서 action의 집합이 추가된다.
 
   또한, 최적의 policy에 따라 v, q를 구하면 그것이 최적이 된다.
 
-  
+  <br />
 
   ![image](https://user-images.githubusercontent.com/59254578/71729266-96de5200-2e82-11ea-964e-463cd8776e2a.png)
 
@@ -174,13 +190,15 @@ MDP는 MRP에서 action의 집합이 추가된다.
 
   신기하게도 MDP에서는 확률적이지 않은, 즉 deteministic한 최적의 policy가 존재한다.
 
+  <br />
+
 - **Bellman optimality equations**
 
   ![image](https://user-images.githubusercontent.com/59254578/71729448-1a983e80-2e83-11ea-840e-cb2e9816b9e1.png)
 
   최적의 q에서 최대의 값을 갖게 하는 a를 따라가면 그게 최적의 v이다.
 
-  
+  <br />
 
   ![image](https://user-images.githubusercontent.com/59254578/71729573-7367d700-2e83-11ea-947f-f5fc22fb6593.png)
 
@@ -195,15 +213,15 @@ MDP는 MRP에서 action의 집합이 추가된다.
   - Q-learning
   - Sarsa
 
-   
+   <br />
 
-   
+   <br />
 
-   
+  <br />
 
-   
+   <br />
 
-   
+   <br />
 
 **※ 참고문헌 및 자료**
 

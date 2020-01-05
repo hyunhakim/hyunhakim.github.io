@@ -27,13 +27,17 @@
 
 여기서는 뇌가 agent, 지구가 environment다. 서로 상호작용을 하면서 observation, reward, action을 주고 받는다.
 
+<br />
+
 ## **5. History and State**
 
-- History : observations, actions, rewards의 모든 sequence를 가지고 있다.따라서, history를 바탕으로 agent는 action을 정하고, environment는 observations/rewards를 정한다.
+- **History** : observations, actions, rewards의 모든 sequence를 가지고 있다.따라서, history를 바탕으로 agent는 action을 정하고, environment는 observations/rewards를 정한다.
 
-- State : 다음에 무슨 일이 일어날지를 정하기 위해 사용되는 정보로, state는 history의 함수이다.
+- **State** : 다음에 무슨 일이 일어날지를 정하기 위해 사용되는 정보로, state는 history의 함수이다.
 
-  - Markov state
+  <br />
+
+  - **Markov state**
 
     ![image](https://user-images.githubusercontent.com/59254578/71668170-2d3f4480-2dab-11ea-95d2-3b71c659792c.png)
 
@@ -41,7 +45,9 @@
 
     environment state는 markov하다.
 
-  - Fully Observable Environments
+    <br />
+
+  - **Fully Observable Environments**
 
     agnet가 environment를 직접적으로 관측하는 상황.
 
@@ -49,12 +55,14 @@
 
     이것을 Markov Decision Process(MDP)라고 한다.
 
-  - Partially Observavble Environments
+    <br />
 
+  - **Partially Observavble Environments**
+  
     agnet가 environment를 간접적으로 관측하는 상황
-
+  
     (ex. 로봇이 카메라 센서 기반으로 이동 시 현재 보는 것만이 state이고 정확한 위치 정보는 모르는 상황)
-
+  
     이것을 Partially Observable Markov Decision Process(POMDP)라고 한다.
 
 ## **6. Policy**
@@ -63,11 +71,15 @@
 
 state를 기반으로 어떤 action을 할 지 정해주는 것을 policy라고 한다. 이때, 결정적인 방법과 확률적인 방법이 있다.
 
+<br />
+
 ## **7. Value Function**
 
 ![image](https://user-images.githubusercontent.com/59254578/71668953-62996180-2dae-11ea-8aa1-65c4efe0c6e2.png)
 
 policy를 기반으로 미래의 reward에 대한 기대값을 얻어서 state를 평가한다.
+
+<br />
 
 ## **8. Model**
 
@@ -75,7 +87,7 @@ policy를 기반으로 미래의 reward에 대한 기대값을 얻어서 state�
 
 environment가 해야하는 일을 모델링한다고 보면 된다.
 
-
+<br />
 
 ## **9. Learning and Planning**
 
@@ -83,7 +95,7 @@ environment가 해야하는 일을 모델링한다고 보면 된다.
 
 Learning과 planning의 차이는 environment를 아냐 모르냐의 차이이다. 즉, planning은 transition model과 reward를 예측가능하다.
 
-
+<br />
 
 ## **10. Exploration and Exploitation**
 
@@ -91,7 +103,7 @@ Exploration : environment에 대한 정보들 더 얻기 위해 탐험하는 것
 
 Exploitation : 지금까지 얻어진 정보를 토대로 reward를 최대화하는 것.
 
-
+<br />
 
 ## **11. Prediction and Control**
 
@@ -101,13 +113,13 @@ Control : optimize the future (policy를 최적화)
 
    
 
-   
+   <br />
 
-   
+   <br />
 
-   
+   <br />
 
-   
+   <br />
 
 **※ 참고문헌 및 자료**
 
