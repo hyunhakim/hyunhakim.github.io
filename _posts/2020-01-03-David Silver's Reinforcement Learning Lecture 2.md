@@ -195,15 +195,15 @@ MDP는 MRP에서 action의 집합이 추가된다.
   - Q-learning
   - Sarsa
 
+   
 
+   
 
+   
 
+   
 
-
-
-
-
-
+   
 
 **※ 참고문헌 및 자료**
 

@@ -99,15 +99,15 @@ Prediction : evaluate the future (value function을 최적화)
 
 Control : optimize the future (policy를 최적화)
 
+   
 
+   
 
+   
 
+   
 
-
-
-
-
-
+   
 
 **※ 참고문헌 및 자료**
 

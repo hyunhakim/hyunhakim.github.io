@@ -33,22 +33,18 @@ Policy Evaluation은 policy가 주어졌을 때 value function을 구해서 평�
 
   ![image](https://user-images.githubusercontent.com/59254578/71775960-45da7500-2fcc-11ea-875f-8dd4db0e34b0.png)
 
-  위와 같은 예시로 policy iteration을 진행해보자.
+  위와 같은 예시로 policy iteration을 진행해보자.  
 
-  
-
-  
-
-  
+  ​       
 
   ![image](https://user-images.githubusercontent.com/59254578/71775982-abc6fc80-2fcc-11ea-8fc1-09c6839d7bb6.png)
 
   ![image](https://user-images.githubusercontent.com/59254578/71775967-69052480-2fcc-11ea-9266-ebc92d001afd.png)
 
   여기서 3번만 반복해도(valuation이 최적화 되지 않아도) optimal policy가 나온 것을 확인할 수 있다.
-  
+
   평가하는 문제에서 최적의 policy를 찾을 수 있다는 것을 보여준다.
-  
+
   
 
 ## **3. Policy Iteration**
@@ -194,15 +190,15 @@ value iteration은 뒤에서부터 차례로 최적의 optimal solution을 찾�
   - Model-free : agent의 action에 따른 다음 state들을 얻을 수 있으므로 n번의 action을 해서 나온 state들에 대해서 backup을 한다면 model-based가 아니어도 적용할 수 있다.
   - 차원의 저주를 해결할 수 있다.
 
+​    
 
+​    
 
+​         
 
+​    
 
-
-
-
-
-
+   
 
 **※ 참고문헌 및 자료**
 
