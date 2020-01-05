@@ -2,6 +2,8 @@
 
 
 
+
+
 ## **1. Characteristics of Reinforcement Learning**
 
 ![image](https://user-images.githubusercontent.com/59254578/71666650-29102880-2da5-11ea-9fc3-35e4b6f4ca5c.png)
