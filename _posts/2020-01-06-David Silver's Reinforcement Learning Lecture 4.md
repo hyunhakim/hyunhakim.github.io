@@ -1,7 +1,4 @@
-# David Silver's reinforcement learning lecture 4
 
-Created By: hyunha kim
-Last Edited: Jan 06, 2020 11:12 PM
 
 ## Model-Free Prediction
 
@@ -179,7 +176,7 @@ episode가 끝나고 얻은 return(G)으로 value를 업데이트하는 MD와 �
 
     <br />
 
-    ![David%20Silver%20s%20reinforcement%20learning%20lecture%204/Untitled.png](David%20Silver%20s%20reinforcement%20learning%20lecture%204/Untitled.png)
+    ![image](https://user-images.githubusercontent.com/59254578/71823625-0d758c80-30db-11ea-86b7-b2edf911f40e.png)
 
     n쪽으로 갈수록 (1-λ)에 의해서 weight가 줄어든다. (λ는 0과 1사이의 값)
 
