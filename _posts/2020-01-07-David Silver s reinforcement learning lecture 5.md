@@ -100,7 +100,7 @@ value function은 MDP model을 알아야 greedy policy improvement가 가능(기
 
     ## **3. On-policy Temporal-Difference Learning**
 
-    이제는 TD를 이용한 policy control 문제를 다룬다.
+    이제는 TD를 이용한 policy control 문제를 다룬다. 
 
     <br />
 
