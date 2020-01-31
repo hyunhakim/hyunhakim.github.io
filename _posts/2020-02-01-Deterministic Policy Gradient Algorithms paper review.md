@@ -1,5 +1,3 @@
-# Deterministic Policy Gradient Algorithms paper review
-
 <br />
 
 ## Abstract
