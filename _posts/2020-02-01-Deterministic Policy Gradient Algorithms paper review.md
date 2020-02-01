@@ -1,3 +1,5 @@
+Paper Link : [main text](http://proceedings.mlr.press/v32/silver14.pdf), [supplementary material](http://proceedings.mlr.press/v32/silver14-supp.pdf)
+
 <br />
 
 ## Abstract
@@ -63,4 +65,38 @@ greedy 방법 대신 우리는 아래와 같이 gradient를 구해서 개선할 
 policy가 바뀌게 되면 방문하게 되는 state가 달라질 것이고, 그럼 당연히 state distribution ρ 또한 바뀌게 된다. 하지만 stochastic policy gradient theorem에서 이것은 gradient를 구할 때 무시할 수 있다.
 
 이처럼 stochastic policy gradient theorem에서도 state distribution의 gradient를 구할 필요가 없다.
+
+
+
+### Deterministic Policy Gradient Theorem
+
+- deterministic policy	
+
+$$
+\mu_\theta : \mathcal{S} \rightarrow \mathcal{A}\ with\ parameter\ vector\ \theta\ \in\ \mathbb{R^n}
+$$
+
+- performance objective
+
+![image](https://user-images.githubusercontent.com/59254578/73594877-c2259100-4555-11ea-82ee-5e1bdc1348a7.png)
+
+- probability distribution
+
+![image](https://user-images.githubusercontent.com/59254578/73594911-e97c5e00-4555-11ea-81ff-a03d124eface.png)
+
+- discounted state distribution
+
+  ![image](https://user-images.githubusercontent.com/59254578/73594972-8a6b1900-4556-11ea-9b7e-d7524d83c62d.png)
+
+
+
+![image](https://user-images.githubusercontent.com/59254578/73594815-2e53c500-4555-11ea-8813-0c4d444ea163.png)
+
+여기서 중요한 것은 deterministic policy gradient는 action-value function의 expected gradient 형태라는 것이고 action은 deterministic하게 결정되므로 state space에 대해서만 computation을 하면 된다는 것이다.
+
+위의 theorem 1의 증명은 아래와 같다.
+
+![image](https://user-images.githubusercontent.com/59254578/73595056-88558a00-4557-11ea-9833-6654439cdeb0.png)
+
+
 
