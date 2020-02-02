@@ -138,11 +138,13 @@ deterministic policy gradient는 언뜻 봐서는 아래의 stochastic 버전처
 
 ![image](https://user-images.githubusercontent.com/59254578/73604629-115fd600-45d7-11ea-8e0a-669cfe560b46.png)
 
-critic은 실제 $Q_\mu (s,a)$ 대신 미분 가능한 $Q_\w (s,a)$로 대체하여 action-value function을 estimate하며, 이 둘 간 mean square error를 최소화하는 것이 목표다. actor는 보상이 최대화되는 방향, 즉, deterministic policy를 stochastic gradient ascent 방법으로 update 한다.
+critic은 실제 $Q_\mu (s,a)$ 대신 미분 가능한 $Q_w (s,a)$로 대체하여 action-value function을 estimate하며, 이 둘 간 mean square error를 최소화하는 것이 목표다. actor는 보상이 최대화되는 방향, 즉, deterministic policy를 stochastic gradient ascent 방법으로 update 한다.
 
 <br />
 
 ### Off-Policy Deterministic Actor-Critic
+
+
 
 stochastic behavior policy $\beta(a|s)$에 의해 생성된 trajectories로부터 deterministic target policy $\mu_\theta(s)$를 학습하는 off-policy actor-critic 알고리즘이다. stochastic behavior policy에 의해 적절하게 탐험이 가능해진다.
 
