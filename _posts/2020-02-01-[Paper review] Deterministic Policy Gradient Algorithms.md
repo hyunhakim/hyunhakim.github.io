@@ -68,7 +68,7 @@ greedy 방법 대신 우리는 아래와 같이 gradient를 구해서 개선할 
 
 policy가 바뀌게 되면 방문하게 되는 state가 달라질 것이고, 그럼 당연히 state distribution ρ 또한 바뀌게 된다. 하지만 stochastic policy gradient theorem에서 이것은 gradient를 구할 때 무시할 수 있다.
 
-이처럼 stochastic policy gradient theorem에서도 state distribution의 gradient를 구할 필요가 없다.
+이처럼 deterministic policy gradient theorem에서도 state distribution의 gradient를 구할 필요가 없다.
 
 
 
@@ -124,7 +124,95 @@ deterministic policy gradient는 언뜻 봐서는 아래의 stochastic 버전처
 
 
 
+## Deterministic Actor-Critic Algorithms
+
+이제 deterministic policy gradient theorem을 이용하여 on-policy와 off-policy actor-critic algorithms를 유도할 것이다.
 
 
-$ \mu $
+
+### On-Policy Deterministic Actor-Critic
+
+이 방법의 문제는 deterministic은 적절하게 exploration을 하지 않기 때문에 sub-optimal에 빠질 수 있다.
+
+아래의 수식들은 SARSA critic을 이용한 on-policy actor-critic algorithm이다.
+
+![image](https://user-images.githubusercontent.com/59254578/73604629-115fd600-45d7-11ea-8e0a-669cfe560b46.png)
+
+critic은 실제 Qμ(s,a) Qμ(s,a) 대신 미분 가능한 Qw(s,a)로 대체하여 action-value function을 estimate하며, 이 둘 간 mean square error를 최소화하는 것이 목표다. actor는 보상이 최대화되는 방향, 즉, deterministic policy를 stochastic gradient ascent 방법으로 update 한다.
+
+
+
+### Off-Policy Deterministic Actor-Critic
+
+stochastic behavior policy β(a|s)에 의해 생성된 trajectories로부터 deterministic target policy μθ(s)를 학습하는 off-policy actor-critic 알고리즘이다. stochastic behavior policy에 의해 적절하게 탐험이 가능해진다.
+
+![image](https://user-images.githubusercontent.com/59254578/73604692-330d8d00-45d8-11ea-8c12-8976426dcdd8.png)
+
+on-policy 알고리즘과 다른 점은 update target 부분에서 다음 액션을 μθ(st+1)로 사용한 것이다. μθ(st+1)는 가장 높은 Q 값을 가지는 행동이 된다. 즉, Q-Learning인 것이다.
+
+보통 Stochastic off-policy actor-critic은 대개 actor와 critic 모두 importance sampling을 필요로 하지만, deterministic policy gradient에선 importance sampling이 필요없다.
+
+그 이유는 다음과 같다.
+
+- Actor
+
+  deterministic policy gradients는 action에 대한 integral(적분)이 사라지기 때문에, 즉, deterministic이므로 policy가 distribution을 갖지 않기 때문에 sampling 자체가 필요가 없다.
+
+- Critic
+
+  Critic이 사용하는 Q-learning은 importance sampling이 필요없는 off policy 알고리즘으로, Q-learning도 업데이트 목표를 특정 분포에서 샘플링을 통해 estimate 하는 것이 아니라 Q 함수를 최대화하는 action을 선택하는 것이기에 위 actor 에서의 deterministic 경우와 비슷하게 볼 수 있다.
+
+
+
+### Compatible Function Approximation
+
+function approximator는 bias가 발생하고, off-policy learning에 의한 instabilities 문제점이 있다.
+
+그래서 stochastic처럼 ∇aQμ(s,a)를 ∇aQw(s,a)로 대체해도 deterministic policy gradient에 영향을 미치지 않을 compatible function approximator Qw(s,a)를 찾아야 한다.
+
+![image](https://user-images.githubusercontent.com/59254578/73608605-5e0fd500-4608-11ea-80bf-6d1a811e0da1.png)
+
+위의 1 / 2의 조건을 만족하면 Qw(s,a)는 deterministic policy μθ(s)와 compatible 하다는 것이 theorem 3이다.
+
+
+
+- COPDAC-Q algorithm (Compatible Off-Policy Deterministic Actor-Critic Q-learning critic)
+
+  ![image](https://user-images.githubusercontent.com/59254578/73608673-366d3c80-4609-11ea-8443-c97e56b2dc7c.png)
+
+
+
+## Experiments
+
+<br />
+
+### Continuous Bandit
+
+![image](https://user-images.githubusercontent.com/59254578/73608717-9d8af100-4609-11ea-9433-f9510704a69d.png)
+
+Stochastic Actor-Critic (SAC)과 COPDAC 간 성능 비교
+
+- action dimension이 커질수록 성능 차이가 심해진다.
+- 빠르게 수렴하는 것을 통해 DPG의 data efficiency가 SPG에 비해 좋다는 것을 확인할 수 있다.
+
+
+
+### Continuous Reinforcement Learning
+
+![image](https://user-images.githubusercontent.com/59254578/73608743-ddea6f00-4609-11ea-9268-1e0268769233.png)
+
+COPDAC-Q, SAC, off-policy stochastic actor-critic(OffPAC-TD) 간 성능 비교
+
+- COPDAC-Q의 성능이 약간 더 좋다.
+- COPDAC-Q의 학습이 더 빨리 이루어진다.
+
+
+
+### Octopus Arm
+
+![image](https://user-images.githubusercontent.com/59254578/73608773-30c42680-460a-11ea-9b6e-3d65cdad243f.png)
+
+COPDAC-Q 사용 시, action space dimension이 큰 octopus arm을 잘 control하여 target을 맞춘다.
+
+
 
