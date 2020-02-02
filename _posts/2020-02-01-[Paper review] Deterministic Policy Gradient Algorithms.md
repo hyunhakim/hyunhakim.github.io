@@ -216,3 +216,4 @@ COPDAC-Q 사용 시, action space dimension이 큰 octopus arm을 잘 control하
 
 
 
+$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$
