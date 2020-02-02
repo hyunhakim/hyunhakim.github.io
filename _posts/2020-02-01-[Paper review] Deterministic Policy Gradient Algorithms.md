@@ -104,7 +104,7 @@ policy가 바뀌게 되면 방문하게 되는 state가 달라질 것이고, 그
 
 ![image](https://user-images.githubusercontent.com/59254578/73595056-88558a00-4557-11ea-9833-6654439cdeb0.png)
 
-
+<br />
 
 ### Limit of the Stochastic Policy Gradient
 
@@ -122,13 +122,13 @@ deterministic policy gradient는 언뜻 봐서는 아래의 stochastic 버전처
 
 이 정리가 중요한 이유는 deterministic policy gradient를  compatible function approximation, actor-critic, episodic/batch methods 등 기존의 유명한 policy gradients 기법들에 stochastic 버전처럼 적용할 수 있다는 것이다.
 
-
+<br />
 
 ## Deterministic Actor-Critic Algorithms
 
 이제 deterministic policy gradient theorem을 이용하여 on-policy와 off-policy actor-critic algorithms를 유도할 것이다.
 
-
+<br />
 
 ### On-Policy Deterministic Actor-Critic
 
@@ -138,19 +138,19 @@ deterministic policy gradient는 언뜻 봐서는 아래의 stochastic 버전처
 
 ![image](https://user-images.githubusercontent.com/59254578/73604629-115fd600-45d7-11ea-8e0a-669cfe560b46.png)
 
-critic은 실제 Qμ(s,a) Qμ(s,a) 대신 미분 가능한 Qw(s,a)로 대체하여 action-value function을 estimate하며, 이 둘 간 mean square error를 최소화하는 것이 목표다. actor는 보상이 최대화되는 방향, 즉, deterministic policy를 stochastic gradient ascent 방법으로 update 한다.
+critic은 실제 $Q_\mu (s,a)$ 대신 미분 가능한 $Q_\w (s,a)$로 대체하여 action-value function을 estimate하며, 이 둘 간 mean square error를 최소화하는 것이 목표다. actor는 보상이 최대화되는 방향, 즉, deterministic policy를 stochastic gradient ascent 방법으로 update 한다.
 
-
+<br />
 
 ### Off-Policy Deterministic Actor-Critic
 
 
 
-stochastic behavior policy β(a|s)에 의해 생성된 trajectories로부터 deterministic target policy μθ(s)를 학습하는 off-policy actor-critic 알고리즘이다. stochastic behavior policy에 의해 적절하게 탐험이 가능해진다.
+stochastic behavior policy $\beta(a|s)$에 의해 생성된 trajectories로부터 deterministic target policy $\mu_\theta(s)$를 학습하는 off-policy actor-critic 알고리즘이다. stochastic behavior policy에 의해 적절하게 탐험이 가능해진다.
 
 ![image](https://user-images.githubusercontent.com/59254578/73604692-330d8d00-45d8-11ea-8c12-8976426dcdd8.png)
 
-on-policy 알고리즘과 다른 점은 update target 부분에서 다음 액션을 μθ(st+1)로 사용한 것이다. μθ(st+1)는 가장 높은 Q 값을 가지는 행동이 된다. 즉, Q-Learning인 것이다.
+on-policy 알고리즘과 다른 점은 update target 부분에서 다음 액션을 $\mu_\theta(s_{t+1})$로 사용한 것이다. $\mu_\theta(s_{t+1})$는 가장 높은 Q 값을 가지는 행동이 된다. 즉, Q-Learning인 것이다.
 
 보통 Stochastic off-policy actor-critic은 대개 actor와 critic 모두 importance sampling을 필요로 하지만, deterministic policy gradient에선 importance sampling이 필요없다.
 
@@ -164,17 +164,17 @@ on-policy 알고리즘과 다른 점은 update target 부분에서 다음 액션
 
   Critic이 사용하는 Q-learning은 importance sampling이 필요없는 off policy 알고리즘으로, Q-learning도 업데이트 목표를 특정 분포에서 샘플링을 통해 estimate 하는 것이 아니라 Q 함수를 최대화하는 action을 선택하는 것이기에 위 actor 에서의 deterministic 경우와 비슷하게 볼 수 있다.
 
-
+<br />
 
 ### Compatible Function Approximation
 
 function approximator는 bias가 발생하고, off-policy learning에 의한 instabilities 문제점이 있다.
 
-그래서 stochastic처럼 ∇aQμ(s,a)를 ∇aQw(s,a)로 대체해도 deterministic policy gradient에 영향을 미치지 않을 compatible function approximator Qw(s,a)를 찾아야 한다.
+그래서 stochastic처럼 $\nabla_a Q_\mu(s,a)$를 $\nabla_a Q_w(s,a)$로 대체해도 deterministic policy gradient에 영향을 미치지 않을 compatible function approximator $Q_w(s,a)$를 찾아야 한다.
 
 ![image](https://user-images.githubusercontent.com/59254578/73608605-5e0fd500-4608-11ea-80bf-6d1a811e0da1.png)
 
-위의 1 / 2의 조건을 만족하면 Qw(s,a)는 deterministic policy μθ(s)와 compatible 하다는 것이 theorem 3이다.
+위의 1 / 2의 조건을 만족하면 $Q_w(s,a)$는 deterministic policy $\mu_\theta(s)$와 compatible 하다는 것이 theorem 3이다.
 
 
 
@@ -182,11 +182,11 @@ function approximator는 bias가 발생하고, off-policy learning에 의한 ins
 
   ![image](https://user-images.githubusercontent.com/59254578/73608673-366d3c80-4609-11ea-8443-c97e56b2dc7c.png)
 
-
+<br />
 
 ## Experiments
 
-<br />
+
 
 ### Continuous Bandit
 
@@ -197,7 +197,7 @@ Stochastic Actor-Critic (SAC)과 COPDAC 간 성능 비교
 - action dimension이 커질수록 성능 차이가 심해진다.
 - 빠르게 수렴하는 것을 통해 DPG의 data efficiency가 SPG에 비해 좋다는 것을 확인할 수 있다.
 
-
+<br />
 
 ### Continuous Reinforcement Learning
 
@@ -208,14 +208,10 @@ COPDAC-Q, SAC, off-policy stochastic actor-critic(OffPAC-TD) 간 성능 비교
 - COPDAC-Q의 성능이 약간 더 좋다.
 - COPDAC-Q의 학습이 더 빨리 이루어진다.
 
-
+<br />
 
 ### Octopus Arm
 
 ![image](https://user-images.githubusercontent.com/59254578/73608773-30c42680-460a-11ea-9b6e-3d65cdad243f.png)
 
 COPDAC-Q 사용 시, action space dimension이 큰 octopus arm을 잘 control하여 target을 맞춘다.
-
-
-
-$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$
