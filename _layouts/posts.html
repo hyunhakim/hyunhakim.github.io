@@ -1,6 +1,8 @@
 ---
 layout: archive
+mathjax: true
 ---
+{% include mathjax.html %}
 
 {{ content }}
 
@@ -23,13 +25,6 @@ layout: archive
       {% for post in year.items %}
         {% include archive-single.html type=page.entries_layout %}
       {% endfor %}
-      <article>
-      <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-      </script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/math...">
-      </script>
-      </article>
     </div>
     <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
   </section>

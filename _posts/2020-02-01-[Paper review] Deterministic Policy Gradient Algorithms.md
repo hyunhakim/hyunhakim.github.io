@@ -144,6 +144,8 @@ critic은 실제 Qμ(s,a) Qμ(s,a) 대신 미분 가능한 Qw(s,a)로 대체하�
 
 ### Off-Policy Deterministic Actor-Critic
 
+
+
 stochastic behavior policy β(a|s)에 의해 생성된 trajectories로부터 deterministic target policy μθ(s)를 학습하는 off-policy actor-critic 알고리즘이다. stochastic behavior policy에 의해 적절하게 탐험이 가능해진다.
 
 ![image](https://user-images.githubusercontent.com/59254578/73604692-330d8d00-45d8-11ea-8c12-8976426dcdd8.png)
