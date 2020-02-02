@@ -1,3 +1,7 @@
+
+
+Deterministic Policy Gradient Algorithms (D.silver et al, 2014)
+
 Paper Link : [main text](http://proceedings.mlr.press/v32/silver14.pdf), [supplementary material](http://proceedings.mlr.press/v32/silver14-supp.pdf)
 
 <br />
@@ -72,21 +76,23 @@ policy가 바뀌게 되면 방문하게 되는 state가 달라질 것이고, 그
 
 - deterministic policy	
 
-$$
-\mu_\theta : \mathcal{S} \rightarrow \mathcal{A}\ with\ parameter\ vector\ \theta\ \in\ \mathbb{R^n}
-$$
+![image](https://user-images.githubusercontent.com/59254578/73602798-a0abc000-45bc-11ea-968d-446390c36360.png)
 
 - performance objective
 
-![image](https://user-images.githubusercontent.com/59254578/73594877-c2259100-4555-11ea-82ee-5e1bdc1348a7.png)
+![image](https://user-images.githubusercontent.com/59254578/73602804-bde08e80-45bc-11ea-9ab5-0fc1b1a6a7e6.png)
 
 - probability distribution
 
-![image](https://user-images.githubusercontent.com/59254578/73594911-e97c5e00-4555-11ea-81ff-a03d124eface.png)
+![image](https://user-images.githubusercontent.com/59254578/73602808-d2248b80-45bc-11ea-8aa9-efd95d15e5b6.png)
 
 - discounted state distribution
 
-  ![image](https://user-images.githubusercontent.com/59254578/73594972-8a6b1900-4556-11ea-9b7e-d7524d83c62d.png)
+  ![image](https://user-images.githubusercontent.com/59254578/73602814-e2d50180-45bc-11ea-928e-5100e28591a4.png)
+
+
+
+우리가 알고 싶은 것은 deterministic policy의 특성을 사용해도 sutton의 policy gradient theorem을 만족하냐는 것이다.
 
 
 
@@ -94,9 +100,31 @@ $$
 
 여기서 중요한 것은 deterministic policy gradient는 action-value function의 expected gradient 형태라는 것이고 action은 deterministic하게 결정되므로 state space에 대해서만 computation을 하면 된다는 것이다.
 
-위의 theorem 1의 증명은 아래와 같다.
+위의 theorem 1의 증명은 아래와 같다. 더 자세한 증명은 appendix를 참고하자.
 
 ![image](https://user-images.githubusercontent.com/59254578/73595056-88558a00-4557-11ea-9833-6654439cdeb0.png)
 
 
+
+### Limit of the Stochastic Policy Gradient
+
+deterministic policy gradient는 언뜻 봐서는 아래의 stochastic 버전처럼 안보인다.
+
+![image](https://user-images.githubusercontent.com/59254578/73603047-ff733880-45c0-11ea-91d7-e31436ff36e9.png)
+
+
+
+하지만 stochastic policy의 variance가 0으로 수렴하면 stochastic policy gradient와 deterministic policy gradient는 동일해진다.
+
+![image](https://user-images.githubusercontent.com/59254578/73603114-950ec800-45c1-11ea-8f75-a78a0c91317d.png)
+
+위의 theorem 2의 증명은 appendix를 참고.
+
+이 정리가 중요한 이유는 deterministic policy gradient를  compatible function approximation, actor-critic, episodic/batch methods 등 기존의 유명한 policy gradients 기법들에 stochastic 버전처럼 적용할 수 있다는 것이다.
+
+
+
+
+
+$ \mu $
 
