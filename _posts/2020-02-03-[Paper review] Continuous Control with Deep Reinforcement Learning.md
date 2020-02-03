@@ -40,7 +40,7 @@ $$Q^{\mu}(s_t, a_t)={\rm E}_{r_{t},s_{t} \backsim E } [r(s_t,a_t)+\gamma Q^{\mu}
 
 policy가 deterministic하기 때문에 두 번째 식에서 expectation이 빠진 것을 알 수 있다.
 
-
+<br />
 
 ### Q learning
 
@@ -50,7 +50,7 @@ $L(\theta^{Q}) = {\rm E}_{s_t \backsim \rho^\beta , a_t \backsim \beta , r_t \ba
 
 또한, $\mu(s) = argmax_{a}Q(s,a)$ 로 Q learning은 argmax로 deterministic한 policy이므로 off-policy로 사용할 수 있다.
 
-
+<br />
 
 ### DPG
 
@@ -59,10 +59,8 @@ $$\nabla_{\theta^\mu} J \approx  {\rm E}_{s_t \backsim \rho^\beta} [ \nabla_{\th
 $$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = {\rm E}_{s_t \backsim \rho^\beta} [ \nabla_{a} Q(s, a \vert \theta ^ Q) \vert_{s=s_t, a=\mu(s_t)} \nabla_{\theta^\mu} \mu(s \vert Q^{\mu})\vert_{s=s_t}]$$
 
 위 수식에 대한 내용은 이전에 작성한 [DPG paper review](https://hyunhakim.github.io/Paper-review-Deterministic-Policy-Gradient-Algorithms/) 참조.
-$$
 
-$$
-
+<br />
 
 ## Algorithm
 
@@ -120,5 +118,36 @@ exploration을 위해서 output으로 나온 행동에 noise를 추가한다.
 
 ![image](https://user-images.githubusercontent.com/59254578/73628157-c1dee000-4692-11ea-993f-7962e9bd2004.png)
 
+<br />
 
+## Results
 
+### Variants of DPG
+
+![image](https://user-images.githubusercontent.com/59254578/73653067-b8259e80-46cb-11ea-9189-13284e8b75ca.png)
+
+target network가 성능에 가장 큰 영향을 끼치고 중요하다는 것을 확인할 수 있다.
+
+<br />
+
+### Q estimation of DDPG
+
+![image](https://user-images.githubusercontent.com/59254578/73653733-3c2c5600-46cd-11ea-8476-8ae1b2cad279.png)
+
+DQN은 Q value를 over-estimate하는 경향이 있었지만, DDPG는 간단한 task에 대해서는 잘 추정한다. 복잡한 task에 대해서는 estimation을 잘 못했지만, 여전히 좋은 policy를 찾아낸다.
+
+<br />
+
+### Performance Comparison
+
+![image](https://user-images.githubusercontent.com/59254578/73654145-47cc4c80-46ce-11ea-83c6-d0fbb973ec0e.png)
+
+torcs를 제외한 모든 환경에 대해서 random agent (naive policy)를 0, planning algorithm을 1이라 했을 때 normalized한 점수를 나타낸다. 부분적으로 1보다 큰, 즉, planning보다 좋은 성능을 나타내기도 한다.
+
+<br />
+
+## Conclusion
+
+최근 딥러닝의 발전과 강화학습을 엮어서 continuous action space에 대한 문제를 robust하게 풀어냈다. non-linear function approximator를 쓰면 수렴이 안될 수도 있는 문제를 해결하였고, DQN보다 적은 step으로 수렴한다는 것을 atari에 적용하여 확인하였다.
+
+model-free에 대해서는 좋은 solution을 찾기 위해서 많은 sample들을 필요로 한다는 한계가 있지만, 더 큰 시스템에서는 이런 한계를 물리칠 정도로 robust함은 중요한 요소가 될 거라고 한다.
