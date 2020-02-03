@@ -26,17 +26,17 @@ continuous한 action space를 discretization을 하면 action space가 exponenti
 
 ### Bellman Equation
 
-$Q^{\pi}(s_t, a_t)={\rm E}_{r_{i \geqq t},s_{i \geqq t} \backsim E, a_{i \geqq t} \backsim \pi } [R_{t} \vert s_t, a_t  ]$
+$$Q^{\pi}(s_t, a_t)={\rm E}_{r_{i \geqq t},s_{i \geqq t} \backsim E, a_{i \geqq t} \backsim \pi } [R_{t} \vert s_t, a_t  ]$$
 
 상태 $s_t$에서 행동 $a_t$를 취했을 때 Expected return은 위와 같다.
 
 이를 벨만 방정식을 이용하여 변형하면 아래와 같다.
 
-$Q^{\pi}(s_t, a_t)={\rm E}_{r_{t},s_{t} \backsim E } [r(s_t,a_t)+\gamma {\rm E}_{a_{t+1} \backsim \pi } [ Q^{\pi}(s_{t+1}, a_{t+1}) ] ]$
+$$Q^{\pi}(s_t, a_t)={\rm E}_{r_{t},s_{t} \backsim E } [r(s_t,a_t)+\gamma {\rm E}_{a_{t+1} \backsim \pi } [ Q^{\pi}(s_{t+1}, a_{t+1}) ] ]$$
 
 여기서 deterministic policy를 적용하면 아래와 같다.
 
-$Q^{\mu}(s_t, a_t)={\rm E}_{r_{t},s_{t} \backsim E } [r(s_t,a_t)+\gamma Q^{\mu}(s_{t+1}, \mu (s_{t+1})) ]$
+$$Q^{\mu}(s_t, a_t)={\rm E}_{r_{t},s_{t} \backsim E } [r(s_t,a_t)+\gamma Q^{\mu}(s_{t+1}, \mu (s_{t+1})) ]$$
 
 policy가 deterministic하기 때문에 두 번째 식에서 expectation이 빠진 것을 알 수 있다.
 
@@ -54,7 +54,7 @@ $L(\theta^{Q}) = {\rm E}_{s_t \backsim \rho^\beta , a_t \backsim \beta , r_t \ba
 
 ### DPG
 
-$\nabla_{\theta^\mu} J \approx  {\rm E}_{s_t \backsim \rho^\beta} [ \nabla_{\theta^\mu} Q(s, a \vert \theta ^ Q) \vert_{s=s_t, a=\mu(s_t)}] = {\rm E}_{s_t \backsim \rho^\beta} [ \nabla_{a} Q(s, a \vert \theta ^ Q) \vert_{s=s_t, a=\mu(s_t)} \nabla_{\theta^\mu} \mu(s \vert Q^{\mu})\vert_{s=s_t}]$
+$$\nabla_{\theta^\mu} J \approx  {\rm E}_{s_t \backsim \rho^\beta} [ \nabla_{\theta^\mu} Q(s, a \vert \theta ^ Q) \vert_{s=s_t, a=\mu(s_t)}] = {\rm E}_{s_t \backsim \rho^\beta} [ \nabla_{a} Q(s, a \vert \theta ^ Q) \vert_{s=s_t, a=\mu(s_t)} \nabla_{\theta^\mu} \mu(s \vert Q^{\mu})\vert_{s=s_t}]$$
 
 위 수식에 대한 내용은 이전에 작성한 [DPG paper review](https://hyunhakim.github.io/Paper-review-Deterministic-Policy-Gradient-Algorithms/) 참조.
 
@@ -76,7 +76,7 @@ DDPG 알고리즘은 off-policy 알고리즘이기 때문에 replay buffer의 �
 
 ![image](https://user-images.githubusercontent.com/59254578/73629365-3a936b80-4696-11ea-9aa8-a448eb201a45.png)
 
-Q learning을 다시 살펴보면, network $Q(s,a|\theta^Q)$가 업데이트가 되면서 Loss를 줄여나가게 된다. 하지만 target value에서도 이 network가 계산에 사용되기 때문에 발산할 수 있고 불안정하다는 단점이 있다.
+Q learning을 다시 살펴보면, network $Q(s,a\vert\theta^Q)$가 업데이트가 되면서 Loss를 줄여나가게 된다. 하지만 target value에서도 이 network가 계산에 사용되기 때문에 발산할 수 있고 불안정하다는 단점이 있다.
 
 이 문제를 해결하기 위한 것이 target update이다.
 
@@ -106,7 +106,7 @@ DDPG에서는 exponential moving average(지수이동평균)을 사용하여 tar
 
 ### Noise Process
 
-$\mu^\prime\ =\ \mu(s_t|\theta^\mu_t)\ +\ \mathcal{N}$
+$\mu^\prime\ =\ \mu(s_t\vert\theta^\mu_t)\ +\ \mathcal{N}$
 
 exploration을 위해서 output으로 나온 행동에 noise를 추가한다.
 
