@@ -40,11 +40,15 @@ $$\begin{align} L_{\pi_{\theta_0} }\left(\pi_{\theta_0}\right) &= \eta\left(\pi_
 
 결국 이 식의 의미는 $\pi_{\theta_0}$가 매우 작게 변하면 $L_{\pi_{\theta_0} }$를 개선시키는 것이 $\eta$를 개선시키는 것이다. 따라서 (3) 식으로 대체가 가능한 것이다.
 
-
-
-
+  
 
 그렇다면 $\pi_{\theta_0}$를 얼마나 작게 변화시켜야 하는 것인가.
+
+Kakade & Langford가 2002년에 발표한 논문에서도 이것에 대해서 고민했고, conservative policy iteration이라는 기법을 제공한다.
+
+**conservative policy iteration**
+
+
 
 <br />
 
