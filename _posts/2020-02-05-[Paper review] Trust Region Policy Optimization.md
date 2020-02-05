@@ -104,6 +104,8 @@ $M_i(\pi)=L_{\pi_i}(\pi) - CD_\mathrm{KL}^\max\left(\pi_i,\pi\right)$라고 할 
 
 $$\begin{align} \eta \left(\pi_{i+1}\right) &\geq M_i\left(\pi_{i+1}\right)\\ \eta \left(\pi_{i}\right) &= M_i\left(\pi_{i}\right) \\ \eta \left(\pi_{i+1}\right) - \eta \left(\pi_{i}\right) &\geq M_i\left(\pi_{i+1}\right) - M_i\left(\pi_{i}\right) \end{align}$$
 
+<br>
+
 $M_i\left(\pi_{i+1}\right) - M_i\left(\pi_{i}\right)$가 매 itration마다 0보다 크거나 같기 때문에 $\eta$가 감소하지 않는 것이다.
 
 ![image](https://user-images.githubusercontent.com/59254578/73852822-2bb5e000-4873-11ea-8d60-81dff14f3b97.png)
@@ -161,7 +163,7 @@ TRPO는 Algorithm 1에서 KL divergence를 penalty가 아닌 constraint로 사�
 
 Equation 12로부터 아래와 같이 확장할 수 있다.
 
-![image-20200206005407414](C:\Users\gusgk\AppData\Roaming\Typora\typora-user-images\image-20200206005407414.png)
+![image](https://user-images.githubusercontent.com/59254578/73860710-4db55f80-487f-11ea-9df0-6ddfc11e161b.png)
 
 $L$에 대한 식을 보면 $\eta(\pi)$가 있는데 이것은 old policy의 expected discounted reward다. 이것은 상수나 마찬가지니까 결국 $sum_s \rho_{\theta_\mathrm{old} }(s)\sum_a\pi_{\theta_\mathrm{old} }(a\vert s)A_{\theta_\mathrm{old}(s,a) }$만 최대화하면 된다.
 
