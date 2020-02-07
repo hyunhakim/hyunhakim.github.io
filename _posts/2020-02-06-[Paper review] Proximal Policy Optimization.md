@@ -8,7 +8,7 @@ Paper Link : [https://arxiv.org/pdf/1707.06347.pdf](https://arxiv.org/pdf/1707.0
 
 ## Abstract
 
-본 논문은 강화학습을 위한 policy gradient의 새로운 방법인 PPO에 대해 소개한다. 이 방법은 environment로부터 얻은 sampling data 들이 서로 교류(?)하는 방식이다. 또한, stochastic gradient ascent를 사용하는 "surrogate" objective function을 최적화하는 방법이다.
+본 논문은 강화학습을 위한 policy gradient의 새로운 방법인 PPO에 대해 소개한다. stochastic gradient ascent를 사용하는 "surrogate" objective function을 최적화하는 방법이다.
 
 standard policy gradient 방법은 data sample마다 한 번의 gradient update가 이루어지지만, 본 논문에서는 여러 epochs를 걸친 minibatch updates가 가능한 objective function을 제시한다.
 
@@ -89,7 +89,7 @@ TRPO의 surrogate objective는 constraint가 없으면 policy update가 과도�
 
 그래서 PPO에서는 cplipped surrogate objective를 사용한다.
 
-![image-20200207150222518](C:\Users\gusgk\AppData\Roaming\Typora\typora-user-images\image-20200207150222518.png)
+![image](https://user-images.githubusercontent.com/59254578/74029437-0ac6c980-49f0-11ea-8691-91abc4667f3f.png)
 
 $clip(r_t(\theta),1-\epsilon,1+\epsilon)\tilde{A}_t$은 policy update가 과도하게 발생하지 않도록 probability ratio $r_t(\theta)$를 clipping한 것이다. 여기서 $\epsilon$은 hyperparameter이기 때문에 문제에 따라 적절하게 정해줘야 한다. 여기서 min을 취하는 이유는 unclipped objective $r_t(\theta)\tilde{A}_t$의 lower bound가 되기 때문에 여전히 surrogate objective의 역할(새로운 policy의 expected discounted reward $\eta$를 최대화하기 위해 minorized된 objective)을 할 수 있는 것이다.
 
@@ -135,7 +135,21 @@ $d > d_{targ}$이면, 즉, $d$가 크면 update가 과하게 일어났다는 의
 
 ![image](https://user-images.githubusercontent.com/59254578/74006634-a2f88a80-49bf-11ea-9fd9-f1a19ab735a9.png)
 
-여기서 *S*는 entropy bouns라고 한다. exploration을 위해 추가한 term이다.
+여기서 *S*는 entropy bonus라고 한다. exploration을 위해 추가한 term이다.
+
+<br>
+
+추가적으로 A3C와 같은 요즘 인기있는 PG의 style에서는 T time steps(T는 episode length 보다 훨씬 작은 크기) 동안 policy에 따라서 sample들을 얻고, 이 sample들을 업데이트에 사용한다. 이러한 방식은 time step T 까지만 고려하는 advantage estimator가 필요하며, A3C에서 다음과 같이 사용한다.
+
+![image](https://user-images.githubusercontent.com/59254578/74029977-431ad780-49f1-11ea-99e2-1b0d9bf3c508.png)
+
+여기서 $t$는 주어진 length T trajectory segment 내에서 $[0, T]$에 있는 time index다.
+
+<br>
+
+위의 수식에 더하여 generalized version인 GAE의 truncated version(generalized advantage estimation)을 사용한다.($\lambda$가 1이면 위 식과 같아짐) 수식은 아래와 같다.
+
+![image](https://user-images.githubusercontent.com/59254578/74030053-72c9df80-49f1-11ea-8fb3-c8d6a5cfbcb9.png)
 
 <br />
 
