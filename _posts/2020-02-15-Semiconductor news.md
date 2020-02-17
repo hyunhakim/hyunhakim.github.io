@@ -24,6 +24,18 @@
 
   <br>
 
+- 2019-06-30
+
+  [ASML "High-NA로 차세대 반도체 미세 공정 구현"](https://m.etnews.com/20190628000089?obj=Tzo4OiJzdGRDbGFzcyI6Mjp7czo3OiJyZWZlcmVyIjtOO3M6NzoiZm9yd2FyZCI7czoxMzoid2ViIHRvIG1vYmlsZSI7fQ%3D%3D)
+
+  <br>
+
+- 2019-07-04
+
+  [日, 차세대 반도체 R&D까지 겨냥했다…포토레지스트 규제 리스트 분석](https://m.etnews.com/20190704000185?obj=Tzo4OiJzdGRDbGFzcyI6Mjp7czo3OiJyZWZlcmVyIjtOO3M6NzoiZm9yd2FyZCI7czoxMzoid2ViIHRvIG1vYmlsZSI7fQ%3D%3D)
+
+  <br>
+
 - 2020-02-10
 
   [**삼성전자 TSMC 3나노급에서 다른 전략 추진, 파운드리 누가 이길까**](http://www.businesspost.co.kr/BP?command=article_view&num=163134&section=11)
