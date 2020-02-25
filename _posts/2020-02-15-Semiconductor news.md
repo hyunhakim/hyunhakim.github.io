@@ -78,10 +78,32 @@
 
   <br>
 
+- 2019-09-14
+
+  [**[반도체 제국의 꿈] 초격차...기술로 이루는 '뉴 메모리'**](http://m.newspim.com/news/view/20190911001124#leedopop)
+
+  <br>
+
+- 2019-09-23
+
+  [**반도체 테스트 세계 1위 ISC, 반도체 테스트 신기술 공개**](http://www.etoday.co.kr/news/view/1801355)
+
+  <br>
+
+- 2019-09-26
+
+  [**세계 반도체 시장 지각변동 일으키는 EUV**](https://biz.chosun.com/site/data/html_dir/2019/09/26/2019092600194.html)
+
+  <br>
+
+- 2019-10-15
+
+  [**반도체 공급과잉인데...삼성, 신규공장 가동 고민**](https://www.sedaily.com/NewsVIew/1VPJ73L72T)
+
+  <br>
+
 - 2020-02-10
 
   [**삼성전자 TSMC 3나노급에서 다른 전략 추진, 파운드리 누가 이길까**](http://www.businesspost.co.kr/BP?command=article_view&num=163134&section=11)
 
   <br>
-
-  
